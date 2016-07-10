@@ -8,10 +8,6 @@ html
 
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-    meta(name='description', content='')
-
-    meta(name='author', content='')
-
     title FinSense
     // Bootstrap Core CSS
     link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
@@ -44,7 +40,42 @@ html
       }
 
 
+  body#page-top.index
+  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            Menu
+            i.fa.fa-bars
 
+          a.navbar-brand.page-scroll(href='/') FinSense
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a(href='#page-top')
+
+            li
+              a.page-scroll(href='/success') Home
+        .navbar-collapse
+      .container-fluid
 
     block content
 
+    script(src='vendor/jquery/jquery.min.js')
+
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+
+    script(src='js/agency.min.js')
+
+    script(src='https://code.highcharts.com/highcharts.js')
+
+    script(src='https://code.highcharts.com/modules/exporting.js')
+
+    script(src='js/chart_js.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js')

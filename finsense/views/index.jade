@@ -2,39 +2,16 @@ extends layout
 
 block content
 
-  body#page-top.index
-  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            Menu
-            i.fa.fa-bars
+  header
+    .container
+      .intro-text
+        .intro-lead-in(style="text-shadow: 2px 2px 8px #000;") Welcome To FinSense!
 
-          a.navbar-brand.page-scroll(href='/') FinSense
+        .intro-heading(style="text-shadow: 2px 2px 8px #000;") It&apos;s Nice To Meet You
 
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li.hidden
-              a(href='#page-top')
-
-            li
-              a.page-scroll(href='/success') Home
-            li
-              a.page-scroll(href='/logout') Logout
-        .navbar-collapse
-      .container-fluid
-    header
-      .container
-        .intro-text
-          .intro-lead-in(style="text-shadow: 2px 2px 8px #000;") Welcome To FinSense!
-
-          .intro-heading(style="text-shadow: 2px 2px 8px #000;") It&apos;s Nice To Meet You
-
-          a.page-scroll.btn.btn-xl(href='/authorize_user')
-            | Sign in with Instagram
-            span.fa.fa-instagram
+        a.page-scroll.btn.btn-xl(href='/authorize_user')
+          Sign in with Instagram
+          span.fa.fa-instagram
 
   section#team.bg-light-gray
     .container

@@ -1,0 +1,192 @@
+
+block content
+
+  a(href='index.html') Back to home page
+    &#x9;
+    #main-quiz-holder
+      #intro-container.questionContainer
+        a.btnStart(href='#')
+          img(src='img/start2.png')
+      &#x9;
+      .questionContainer.hide
+        .question
+          How would you get closer to your goal?
+        &#x9;&#x9;
+        ul.answers
+          li
+            label
+              input(data-key='a', type='radio')
+              &#x9;&#x9;&#x9;Spending more and more...
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='b', type='radio')
+              Limiting your expenses...
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='c', type='radio')
+              Drinking more coffee...
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='d', type='radio')
+              Watching more movies...
+        &#x9;&#x9;
+        .btnContainer
+          .next
+            a.btnNext(href='#') Next
+          &#x9;&#x9;&#x9;
+          .clear
+      &#x9;
+      .questionContainer.hide
+        .question
+          What is a good example of wise money spending?
+        &#x9;&#x9;
+        ul.answers
+          li
+            label
+              input(data-key='a', type='radio')
+              Spending a lot on food...
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='b', type='radio')
+              Just watching movies...
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='c', type='radio')
+              &#x9;&#x9;&#x9;Thinking twice about goal before spending
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='d', type='radio')
+              Buying everything
+        &#x9;&#x9;
+        .btnContainer
+          .prev
+            a.btnPrev(href='#') Prev
+          &#x9;&#x9;&#x9;
+          .next
+            a.btnNext(href='#') Next
+          &#x9;&#x9;&#x9;
+          .clear
+      &#x9;
+      .questionContainer.hide
+        .question
+          Sample Question to be asked?
+        &#x9;&#x9;
+        ul.answers
+          li
+            label
+              input(data-key='a', type='radio')
+              Sample Option A
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='b', type='radio')
+              Sample Option B
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='c', type='radio')
+              Sample Option C
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='d', type='radio')
+              Sample Option D
+        &#x9;&#x9;
+        .btnContainer
+          .prev
+            a.btnPrev(href='#') Prev
+          &#x9;&#x9;&#x9;
+          .next
+            a.btnNext(href='#') Next
+          &#x9;&#x9;&#x9;
+          .clear
+      &#x9;
+      .questionContainer.hide
+        .question
+          Sample Question to be asked?
+        &#x9;&#x9;
+        ul.answers
+          li
+            label
+              input(data-key='a', type='radio')
+              Sample Option A
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='b', type='radio')
+              Sample Option B
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='c', type='radio')
+              Sample Option C
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='d', type='radio')
+              Sample Option D
+        &#x9;&#x9;
+        .btnContainer
+          .prev
+            a.btnPrev(href='#') Prev
+          &#x9;&#x9;&#x9;
+          .next
+            a.btnNext(href='#') Next
+          &#x9;&#x9;&#x9;
+          .clear
+      &#x9;
+      .questionContainer.hide
+        .question
+          Sample Question to be asked?
+        &#x9;&#x9;
+        ul.answers
+          li
+            label
+              input(data-key='a', type='radio')
+              Sample Option A
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='b', type='radio')
+              Sample Option B
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='c', type='radio')
+              Sample Option C
+          &#x9;&#x9;&#x9;
+          li
+            label
+              input(data-key='d', type='radio')
+              Sample Option D
+        &#x9;&#x9;
+        .btnContainer
+          .prev
+            a.btnPrev(href='#') Prev
+          &#x9;&#x9;&#x9;
+          .next
+            a.btnShowResult(href='#') Finish
+          &#x9;&#x9;&#x9;
+          .clear
+      &#x9;
+      #results-container.questionContainer.hide
+        #resultKeeper
+      &#x9;
+      //- #progressKeeper
+      //-   #progress
+      &#x9;
+      #notice
+        Please select an option
+
+    link(rel='stylesheet', href='css/style.css')
+    script(src='js/jquery.js')
+
+    script.
+      var kroggy = { answers: [ 'd', 'c', 'a', 'b', 'd' ] }
+    script(src='js/kroggy-v0.1.js')

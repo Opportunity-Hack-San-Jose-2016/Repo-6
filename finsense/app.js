@@ -8,7 +8,9 @@ var api = require('instagram-node').instagram();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var success = require('./routes/success');
+var quiz = require('./routes/quiz');
 var session = require('express-session')
+
 require('dotenv').config();
 
 var app = express();
@@ -38,7 +40,6 @@ exports.handleauth = function(req, res) {
       req.session.username = result.user.username;
       req.session.profil_picture = result.user.profile_picture;
       req.session.id = result.user.id;
-
       res.redirect('/success')
     };
   })
@@ -67,6 +68,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/success', success);
+app.use('/quiz', quiz);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
