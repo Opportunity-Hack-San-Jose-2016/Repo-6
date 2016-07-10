@@ -23,3 +23,147 @@ block content
               a.page-scroll(href='#home') Home
         .navbar-collapse
       .container-fluid
+
+  section#portfolio.bg-light-gray
+    .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Top FinPal Rewards
+            &#x9;&#x9;&#x9;&#x9;&#x9;
+            h2.section-heading
+
+        .row
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+
+              img.img-responsive(src='img/portfolio/roundicons.png', alt='')
+
+            .portfolio-caption
+              h4 FinPal_Skateboard
+
+              p.text-muted Cost: 1,000 PTS
+
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal2', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+
+              img.img-responsive(src='img/portfolio/startup-framework.png', alt='')
+
+            .portfolio-caption
+              h4 FinPal_Iphone
+
+              p.text-muted Cost: 7,000 PTS
+
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal3', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+
+              img.img-responsive(src='img/portfolio/treehouse.png', alt='')
+
+            .portfolio-caption
+              h4 FinPal_XBox
+
+              p.text-muted Cost: 5,000 PTS
+              &#x9;
+              &#x9;
+              &#x9;
+              &ZeroWidthSpace;
+
+    section#services
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Top Last Week Winners
+
+            h3.section-subheading.text-muted Watch and compete for next week!
+
+        .row.text-center
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+
+              i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
+
+            h4.service-heading Olya
+
+            p.text-muted Score: 80%
+
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+
+              i.fa.fa-laptop.fa-stack-1x.fa-inverse
+
+            h4.service-heading Raymond
+
+            p.text-muted Score: 60%
+
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+
+              i.fa.fa-lock.fa-stack-1x.fa-inverse
+
+            h4.service-heading Parisa
+
+            p.text-muted Score: 50%
+    // Use the modals below to showcase details about your portfolio projects!
+    // Portfolio Modal 1
+    #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Winners
+
+                p.item-intro.text-muted Get the top leaders for the skateboard
+
+                img.img-responsive.img-centered(src='img/winner.png', alt='')
+
+                &#x9;
+
+                ul.list-inline
+                  li John Snow: 98%
+
+                  li Ned Stark: 89%
+
+                  li High Sparrow: 20%
+                // <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                p.item-intro.text-muted Get a headstart and earn more points
+                &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                button.btn.btn-primary(type='button') Take a Quiz!
+    // Portfolio Modal 2
+    #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Winners
+
+                p.item-intro.text-muted Get the top leaders for the Iphone
+
+                img.img-responsive.img-centered(src='img/winner.png', alt='')
+
+                &#x9;
+
+                ul.list-inline
+
