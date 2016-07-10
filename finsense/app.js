@@ -10,15 +10,16 @@ var users = require('./routes/users');
 var success = require('./routes/success');
 var quiz = require('./routes/quiz');
 var session = require('express-session')
-var fs = require('fs');
+
+require('dotenv').config();
 
 var app = express();
-//add client_id and client_secret here!
-api.use({ client_id: 'afa112384cbf4352bc3038ba3950e1b9',
-  client_secret: '543b816ac7294a3084b0fcfc57058d63' });
+
+api.use({ client_id: process.env['CLIENT_ID'],
+  client_secret: process.env['CLIENT_SECRET'] });
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: process.env['SECRET_KEY'],
   resave: false,
   saveUninitialized: true
 }))
@@ -33,25 +34,18 @@ exports.handleauth = function(req, res) {
   api.authorize_user(req.query.code, redirect_uri, function(err, result) {
     if (err) {
       console.log(err.body);
-      // res.send("Access Denied");
       res.redirect('/')
     } else {
-      // console.log('Yay! Access token is ' + result.access_token);
       req.session.token = result.access_token;
       req.session.username = result.user.username;
       req.session.profil_picture = result.user.profile_picture;
       req.session.id = result.user.id;
-      console.log(result);
-        if (err) return console.log(err);
-        res.redirect('/success')
-      };
+      res.redirect('/success')
+    };
   })
 }
 
-
-// This is where you would initially send users to authorize
 app.get('/authorize_user', exports.authorize_user);
-// This is your redirect URI
 app.get('/handleauth', exports.handleauth);
 
 app.get('/logout', function(req, res){
