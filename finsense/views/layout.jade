@@ -2,63 +2,79 @@ doctype html
 html
   head
     title= Finsense
-    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
     meta(charset='utf-8')
-    meta(name='description', content='A Template by Congruity Hub team')
-    meta(name='keywords', content='HTML, CSS, JavaScript')
-    meta(name='author', content='Congruity Hub team')
-    // Mobile Specific Metas
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(content='telephone=no', name='format-detection')
-    // Fonts
-    // Open Sans
-    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600,700italic,400,700,800italic', rel='stylesheet', type='text/css')
-    // VarelaRound
-    link(href='http://fonts.googleapis.com/css?family=Varela+Round', rel='stylesheet', type='text/css')
-    // Icon Font - Font Awesome
-    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-    // Stylesheets
-    // External
-    // Mobile menu
-    link(href='/external/z-nav/z-nav.css', rel='stylesheet')
-    // Touch slider - Swiper
-    link(href='/external/swiper/idangerous.swiper.css', rel='stylesheet')
-    // Custom
-    link(href='/stylesheets/style.css?v=1', rel='stylesheet')
-    // *** Favicons ***
-    //if IE
-      link(rel='icon', href='favicons/favicon_16x16.ico')
-    link(rel='icon', href='favicons/favicon_96x96.png')
-    // Specifying a Webpage Icon for Web Clip
-    link(rel='apple-touch-icon-precomposed', href='favicons/favicon_57x57.png')
-    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='favicons/favicon_72x72.png')
-    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='favicons/favicon_114x114.png')
-    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='favicons/favicon_144x144.png')
-    link(rel='apple-touch-icon-precomposed', sizes='180x180', href='favicons/favicon_180x180.png')
-    // Basic JavaScript
-    // Modernizr
-    script(src='/external/modernizr/modernizr.custom.js')
 
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
 
-  body
-  #top.wrapper
-      header.header-placement
-          .content
-            .header-fixed(style='background-color: teal;')
-              .container
-                a.logo(href='index.html')
-                  img(src='images/logo-full.png', alt='')
-                nav.z-nav
-                  a.z-nav__toggle(href='#')
-                    span.menu-icon
-                    span.menu-text navigation
-                    .menu-head
-                  .z-nav-inner(style='background-color : #34495e;')
-                    ul.z-nav__list
-                      li.z-nav__item
-                        a.z-nav__link.z-nav__link--active(href='index.html', style='font-size:20px; color: white;') Home
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    meta(name='description', content='')
+
+    meta(name='author', content='')
+
+    title FinSense
+    // Bootstrap Core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+
+    link(href='https://fonts.googleapis.com/css?family=Kaushan+Script', rel='stylesheet', type='text/css')
+
+    link(href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+
+    link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')
+    // Theme CSS
+    link(href='css/agency.min.css', rel='stylesheet')
+
+    style.
+      .video-container {
+      position: relative;
+      padding-top: 15px !important;
+      padding-bottom: 54.25% !important;
+      height: 0;
+      }
+      .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      }
+
+
+  body#page-top.index
+  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            Menu
+            i.fa.fa-bars
+
+          a.navbar-brand.page-scroll(href='#page-top') FinSense
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a(href='#page-top')
+
+            li
+              a.page-scroll(href='#home') Home
+        .navbar-collapse
+      .container-fluid
+    header
+      .container
+        .intro-text
+          .intro-lead-in(style='solid margin 2px;') Welcome To FinSense!
+
+          .intro-heading It&apos;s Nice To Meet You
+
+          a.page-scroll.btn.btn-xl(href='#home')
+            | Sign in with Instagram
+            span.fa.fa-instagram
 
 
     block content
