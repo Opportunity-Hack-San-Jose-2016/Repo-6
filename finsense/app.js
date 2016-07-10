@@ -18,7 +18,7 @@ api.use({ client_id: '',
 var redirect_uri = 'http://localhost:3000/handleauth';
 
 exports.authorize_user = function(req, res) {
-  res.redirect(api.get_authorization_url(redirect_uri, { }));
+  res.redirect(api.get_authorization_url(redirect_uri, {scope: ['basic','public_content','follower_list'] }));
 };
 
 exports.handleauth = function(req, res) {
@@ -52,7 +52,7 @@ exports.handleauth = function(req, res) {
 }
 
 
-// This is where you would initially send users to authorize 
+// This is where you would initially send users to authorize
 app.get('/authorize_user', exports.authorize_user);
 // This is your redirect URI 
 app.get('/handleauth', exports.handleauth);
