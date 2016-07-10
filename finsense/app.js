@@ -13,8 +13,8 @@ var fs = require('fs');
 
 var app = express();
 //add client_id and client_secret here!
-api.use({ client_id: 'afa112384cbf4352bc3038ba3950e1b9',
-  client_secret: '543b816ac7294a3084b0fcfc57058d63' });
+api.use({ client_id: '',
+  client_secret: '' });
 
 app.use(session({
   secret: 'keyboard cat',
