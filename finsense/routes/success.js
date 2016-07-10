@@ -3,6 +3,9 @@ var router = express.Router();
 var fs = require('fs'); 
 
 router.get('/', function(req, res, next) {
+  if (req.session.token == undefined) {
+    res.redirect('/');
+  }
   // var follows = [];
   // fs.readFile('userInfo.txt', 'utf8', function(err,data){
   //   if (err) {
