@@ -20,9 +20,12 @@ router.get('/', function(req, res, next) {
   //   res.render('success', { title: 'Finsense', data: user });
   // })
   // console.log(follows)
-  var user ={};
-  console.log(req.session)
-  res.render('success', { title: 'Finsense', data: user });
+  var user ={
+      username: req.session.username,
+      profilePicture: req.session.profil_picture,
+      id: req.session.id
+  };
+  res.render('success', { title: 'Finsense', user: user });
 
 });
 
