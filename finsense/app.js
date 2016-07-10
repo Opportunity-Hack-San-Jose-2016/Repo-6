@@ -8,6 +8,7 @@ var api = require('instagram-node').instagram();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var success = require('./routes/success');
+var quiz = require('./routes/quiz');
 var session = require('express-session')
 var fs = require('fs');
 
@@ -41,23 +42,7 @@ exports.handleauth = function(req, res) {
       req.session.profil_picture = result.user.profile_picture;
       req.session.id = result.user.id;
       console.log(result);
-      // console.log(req.session)
-      // api.use({access_token: result.access_token});
-      // api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {follows = users});
-      // fs.writeFile('userInfo.txt', JSON.stringify(result))
-      // fs.writeFile('access.txt', result.access_token + ', ' + result.user.id + ','+ result.user.username + '\n', function (err) {
         if (err) return console.log(err);
-        // console.log(result.access_token + ' > access.txt');
-        //console.log(res.param);
-        // console.log(result);
-        // api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {console.log(users)});
-        // api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {
-        //   // fs.writeFile('test.txt', JSON.stringify(users))
-        //   for(var i=0; i<users.length;i++){
-        //     fs.appendFile('access.txt', users[i].username + ","+ users[i].id + "\n", function(err){});
-        //   }
-        // });
-        // res.send('Successful!');
         res.redirect('/success')
       };
   })
@@ -89,6 +74,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/success', success);
+app.use('/quiz', quiz);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
