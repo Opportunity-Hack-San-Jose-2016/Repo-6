@@ -2,35 +2,13 @@ extends layout
 
 block content
 
-  body#page-top.index
-  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            Menu
-            i.fa.fa-bars
-
-          a.navbar-brand.page-scroll(href='/') FinSense
-
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li.hidden
-              a(href='#page-top')
-
-            li
-              a.page-scroll(href='/success') Home
-        .navbar-collapse
-      .container-fluid
-
   section#portfolio.bg-light-gray
     .container
-        .row
-          .col-lg-12.text-center
-            h2.section-heading Top FinPal Rewards
-            &#x9;&#x9;&#x9;&#x9;&#x9;
-            h2.section-heading
+      .row
+        .col-lg-12.text-center
+          h2.section-heading Top FinPal Rewards
+
+          h2.section-heading
 
         .row
           .col-md-4.col-sm-6.portfolio-item
@@ -55,7 +33,7 @@ block content
               img.img-responsive(src='img/portfolio/startup-framework.png', alt='')
 
             .portfolio-caption
-              h4 FinPal_Iphone
+              h4 FinPal_iPhone
 
               p.text-muted Cost: 7,000 PTS
 
@@ -71,57 +49,194 @@ block content
               h4 FinPal_XBox
 
               p.text-muted Cost: 5,000 PTS
-              &#x9;
-              &#x9;
-              &#x9;
-              &ZeroWidthSpace;
 
-    section#services
+    section#services(style="padding: initial;")
       .container
         .row
-          .col-lg-12.text-center
-            h2.section-heading Top Last Week Winners
+          h2.section-heading(style='text-align: center;') Top Last Week Winners
 
-            h3.section-subheading.text-muted Watch and compete for next week!
+          br
 
-        .row.text-center
-          .col-md-4
-            span.fa-stack.fa-4x
-              i.fa.fa-circle.fa-stack-2x.text-primary
+          #exTab2.container
+            ul.nav.nav-tabs.nav-justified
+              li.active
+                a(href='#1', data-toggle='tab') Tables
 
-              i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
+              li
+                a(href='#2', data-toggle='tab') Charts
 
-            h4.service-heading Olya
+            .tab-content
+              #1.tab-pane.active
+                table.table
+                  thead
+                    tr
+                      th Name
 
-            p.text-muted Score: 80%
+                      th Points
 
-          .col-md-4
-            span.fa-stack.fa-4x
-              i.fa.fa-circle.fa-stack-2x.text-primary
+                      th Savings Percentage
 
-              i.fa.fa-laptop.fa-stack-1x.fa-inverse
+                      th
 
-            h4.service-heading Raymond
+                  tbody
+                    tr
+                      td John
 
-            p.text-muted Score: 60%
+                      td 6,000 PTS
 
-          .col-md-4
-            span.fa-stack.fa-4x
-              i.fa.fa-circle.fa-stack-2x.text-primary
+                      td 99%
 
-              i.fa.fa-lock.fa-stack-1x.fa-inverse
+                      td
+                        button.btn.btn-primary(data-toggle='modal', data-target='.bd-example-modal-lg') Claim
+                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
 
-            h4.service-heading Parisa
+                        .modal.fade.bd-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
+                          .modal-dialog.modal-lg
+                            .modal-content
+                              div(align='center')
+                                table(cellpadding='0', cellspacing='0', border='0')
+                                  tr
+                                    td
+                                      .power_controls
+                                        br
 
-            p.text-muted Score: 50%
-    // Use the modals below to showcase details about your portfolio projects!
-    // Portfolio Modal 1
+                                        img#spin_button(src='img/spin_on.png', alt='Spin', onclick='startSpin();')
+
+                                        br
+                                        br
+
+                                    td.the_wheel(width='438', height='582', align='center', valign='center')
+                                      canvas#canvas(width='434', height='434')
+                                        p(style='{color: white}', align='center') Sorry, your browser doesn&apos;t support canvas. Please try another.
+
+                                script(src='js/Winwheel.js')
+                                script.
+                                  // Create new wheel object specifying the parameters at creation time.
+                                  var theWheel = new Winwheel({
+                                    'numSegments'  : 8,
+                                    'outerRadius'  : 212,
+                                    'textFontSize' : 20,
+                                    'segments'     :
+                                    [
+                                    {'fillStyle' : '#eae56f', 'text' : '+1000 PTS'},
+                                    {'fillStyle' : '#89f26e', 'text' : '+100 PTS'},
+                                    {'fillStyle' : '#7de6ef', 'text' : 'PLATINUM BADGE'},
+                                    {'fillStyle' : '#e7706f', 'text' : 'VIBRANIUM BADGE'},
+                                    {'fillStyle' : '#eae56f', 'text' : '+100 PTS'},
+                                    {'fillStyle' : '#89f26e', 'text' : 'SILVER BADGE'},
+                                    {'fillStyle' : '#7de6ef', 'text' : 'GOLD BADGE'},
+                                    {'fillStyle' : '#e7706f', 'text' : 'DIAMOND BADGE'}
+                                    ],
+                                    'animation' :
+                                    {
+                                    'type'     : 'spinToStop',
+                                    'duration' : 5,
+                                    'spins'    : 8,
+                                    'callbackFinished' : 'alertPrize()'
+                                    }
+                                  });
+                                  // Vars used by the code in this page to do power controls.
+                                  var wheelPower    = 0;
+                                  var wheelSpinning = false;
+                                  // -------------------------------------------------------
+                                  // Function to handle the onClick on the power buttons.
+                                  // -------------------------------------------------------
+                                  function powerSelected(powerLevel)
+                                  {
+                                  // Ensure that power can't be changed while wheel is spinning.
+                                  if (wheelSpinning == false)
+                                  {
+                                  // Reset all to grey incase this is not the first time the user has selected the power.
+                                  document.getElementById('pw1').className = "";
+                                  // Now light up all cells below-and-including the one selected by changing the class.
+                                  if (powerLevel >= 1)
+                                  {
+                                  document.getElementById('pw1').className = "pw1";
+                                  }
+                                  // Set wheelPower var used when spin button is clicked.
+                                  wheelPower = powerLevel;
+                                  // Light up the spin button by changing it's source image and adding a clickable class to it.
+                                  document.getElementById('spin_button').src = "img/spin_off.png";
+                                  document.getElementById('spin_button').className = "clickable";
+                                  }
+                                  }
+                                  // -------------------------------------------------------
+                                  // Click handler for spin button.
+                                  // -------------------------------------------------------
+                                  function startSpin()
+                                  {
+                                  // Ensure that spinning can't be clicked again while already running.
+                                  if (wheelSpinning == false)
+                                  {
+                                  // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+                                  // to rotate with the duration of the animation the quicker the wheel spins.
+                                  if (wheelPower == 1)
+                                  {
+                                  theWheel.animation.spins = 3;
+                                  }
+                                  // Disable the spin button so can't click again while wheel is spinning.
+                                  document.getElementById('spin_button').src       = "spin_off.png";
+                                  document.getElementById('spin_button').className = "";
+                                  // Begin the spin animation by calling startAnimation on the wheel object.
+                                  theWheel.startAnimation();
+                                  // Set to true so that power can't be changed and spin button re-enabled during
+                                  // the current animation. The user will have to reset before spinning again.
+                                  wheelSpinning = true;
+                                  }
+                                  }
+                                  // -------------------------------------------------------
+                                  // Function for reset button.
+                                  // -------------------------------------------------------
+                                  function resetWheel()
+                                  {
+                                  theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+                                  theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+                                  theWheel.draw();                // Call draw to render changes to the wheel.
+                                  document.getElementById('pw1').className = "";  // Remove all colours from the power level indicators.
+                                  wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+                                  }
+                                  // -------------------------------------------------------
+                                  // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+                                  // -------------------------------------------------------
+                                  function alertPrize()
+                                  {
+                                  // Get the segment indicated by the pointer on the wheel background which is at 0 degrees.
+                                  var winningSegment = theWheel.getIndicatedSegment();
+                                  // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
+                                  alert("You have won " + winningSegment.text);
+                                  }
+
+
+                          tr
+                            td Mary
+
+                            td 4520 PTS
+
+                            td 70%
+
+                            td
+
+                          tr
+                            td July
+
+                            td 3,000 PTS
+
+                            td 65%
+
+                            td
+
+              #2.tab-pane
+                br
+
+                center
+                  #chart_container(style='min-width: 1010px; height: 400px; margin:0 auto;')
+
+
     #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
       .modal-content
         .close-modal(data-dismiss='modal')
           .lr
             .rl
-
         .container
           .row
             .col-lg-8.col-lg-offset-2
@@ -133,19 +248,18 @@ block content
 
                 img.img-responsive.img-centered(src='img/winner.png', alt='')
 
-                &#x9;
-
                 ul.list-inline
                   li John Snow: 98%
 
                   li Ned Stark: 89%
 
                   li High Sparrow: 20%
-                // <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                p.item-intro.text-muted Get a headstart and earn more points
-                &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                button.btn.btn-primary(type='button') Take a Quiz!
-    // Portfolio Modal 2
+
+                p.item-intro.text-muted Get a head start and earn more points
+
+                a(href='quiz.htm')
+                  button.btn.btn-primary(type='button') Take a Quiz!
+
     #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
       .modal-content
         .close-modal(data-dismiss='modal')
@@ -159,11 +273,75 @@ block content
                 // Project Details Go Here
                 h2 Winners
 
-                p.item-intro.text-muted Get the top leaders for the Iphone
+                p.item-intro.text-muted Get the top leaders for the iPhone
 
                 img.img-responsive.img-centered(src='img/winner.png', alt='')
 
-                &#x9;
+                ul.list-inline
+                  li Mother of Dragons: 92%
+
+                  li Ned Stark: 89%
+
+                  li High Sparrow: 20%
+
+                p.item-intro.text-muted Get a head start and earn more points
+
+                a(href='quiz.htm')
+                  button.btn.btn-primary(type='button') Take a Quiz!
+
+    #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                h2 Winners
+
+                p.item-intro.text-muted Get the top leaders for the XBox
+
+                img.img-responsive.img-centered(src='img/winner.png', alt='')
 
                 ul.list-inline
+                  li
+                    img(src='/img/portfolio/snow.png')
+                    br
+                John Snow: 98%
 
+                  li
+                    img(src='/img/portfolio/ned.png')
+                    br
+                Ned Stark: 89%
+
+                  li
+                    img(src='/img/portfolio/sparrow.png')
+                    br
+                High Sparrow: 20%
+
+                p.item-intro.text-muted Get a head start and earn more points
+
+                a(href='quiz.htm')
+                  button.btn.btn-primary(type='button') Take a Quiz!
+
+    footer
+      .container
+        .row
+          .col-md-6
+            span.copyright Copyright &copy; Opportunity Hack PayPal San Jose 2016
+
+      script(src='vendor/jquery/jquery.min.js')
+
+      script(src='vendor/bootstrap/js/bootstrap.min.js')
+
+      script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+
+      script(src='js/agency.min.js')
+
+      script(src='https://code.highcharts.com/highcharts.js')
+
+      script(src='https://code.highcharts.com/modules/exporting.js')
+
+      script(src='js/chart_js.js')

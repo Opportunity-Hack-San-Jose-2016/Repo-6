@@ -12,6 +12,7 @@
     "express": "~4.13.4",
     "express-session": "^1.14.0",
     "instagram": "0.0.4",
+    "instagram-node": "^0.5.8",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "node": "0.0.0",

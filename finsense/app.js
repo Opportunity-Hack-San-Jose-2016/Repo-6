@@ -9,12 +9,12 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var success = require('./routes/success');
 var session = require('express-session')
-var fs = require('fs'); 
+var fs = require('fs');
 
 var app = express();
 //add client_id and client_secret here!
-api.use({ client_id: process.env['CLIENT_ID'],
-  client_secret: process.env['CLIENT_SECRET'] });
+api.use({ client_id: 'afa112384cbf4352bc3038ba3950e1b9',
+  client_secret: '543b816ac7294a3084b0fcfc57058d63' });
 
 app.use(session({
   secret: 'keyboard cat',
@@ -66,7 +66,7 @@ exports.handleauth = function(req, res) {
 
 // This is where you would initially send users to authorize
 app.get('/authorize_user', exports.authorize_user);
-// This is your redirect URI 
+// This is your redirect URI
 app.get('/handleauth', exports.handleauth);
 
 app.get('/logout', function(req, res){
