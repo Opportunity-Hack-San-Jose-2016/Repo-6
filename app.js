@@ -24,7 +24,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
-var redirect_uri = 'http://localhost:3000/handleauth';
+var redirect_uri = 'https://finsense.herokuapp.com/';
 
 exports.authorize_user = function(req, res) {
   res.redirect(api.get_authorization_url(redirect_uri, {scope: ['basic','public_content','follower_list'] }));
