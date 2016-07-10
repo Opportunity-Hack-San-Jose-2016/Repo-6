@@ -10,33 +10,44 @@ var users = require('./routes/users');
 
 var app = express();
 //add client_id and client_secret here!
-api.use({ client_id: client_id,
-         client_secret: client_secret });
+api.use({ client_id: '',
+         client_secret: '' });
 
 var redirect_uri = 'http://localhost:3000/handleauth';
  
 exports.authorize_user = function(req, res) {
-  res.redirect(api.get_authorization_url(redirect_uri, { }));
+  res.redirect(api.get_authorization_url(redirect_uri, {scope: ['basic','public_content','follower_list'] }));
 };
 var fs = require('fs'); 
 exports.handleauth = function(req, res) {
   api.authorize_user(req.query.code, redirect_uri, function(err, result) {
     if (err) {
       console.log(err.body);
-      res.send("Didn't work");
+      res.send("Access Denied");
     } else {
       console.log('Yay! Access token is ' + result.access_token);
-      fs.writeFile('access.txt', result.access_token, function (err) {
+      api.use({access_token: result.access_token});
+      fs.writeFile('access.txt', result.access_token + ', ' + result.user.id + result.user.username + "\n", function (err) {
      	 if (err) return console.log(err);
  	 console.log(result.access_token + ' > access.txt');
+         //console.log(res.param);
+         console.log(result);
+         api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {console.log(users)});
+         api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {
+                          console.log(pagination);
+                          for(var i=0; i<users.length;i++){
+                          fs.appendFile('access.txt', users[i].username + ", " + users[i].id + "\n", function(err){});
+                          }
+
       });
-      res.send('You made it!!');
-    }
-  });
-};
+      res.send('Successful!');
+    });
+  };
+                     })
+}
 
 
-// This is where you would initially send users to authorize 
+// This is where you would initially send users to authorize
 app.get('/authorize_user', exports.authorize_user);
 // This is your redirect URI 
 app.get('/handleauth', exports.handleauth);
