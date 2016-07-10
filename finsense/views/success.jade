@@ -109,7 +109,10 @@ block content
                                       canvas#canvas(width='434', height='434')
                                         p(style='{color: white}', align='center') Sorry, your browser doesn&apos;t support canvas. Please try another.
 
+                                script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js')
+
                                 script(src='js/Winwheel.js')
+
                                 script.
                                   // Create new wheel object specifying the parameters at creation time.
                                   var theWheel = new Winwheel({
@@ -175,7 +178,7 @@ block content
                                   theWheel.animation.spins = 3;
                                   }
                                   // Disable the spin button so can't click again while wheel is spinning.
-                                  document.getElementById('spin_button').src       = "spin_off.png";
+                                  document.getElementById('spin_button').src       = "img/spin_off.png";
                                   document.getElementById('spin_button').className = "";
                                   // Begin the spin animation by calling startAnimation on the wheel object.
                                   theWheel.startAnimation();
