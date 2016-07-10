@@ -8,12 +8,19 @@ var api = require('instagram-node').instagram();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var success = require('./routes/success');
+var session = require('express-session')
 var fs = require('fs'); 
 
 var app = express();
 //add client_id and client_secret here!
 api.use({ client_id: '',
   client_secret: '' });
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 
 var redirect_uri = 'http://localhost:3000/handleauth';
 
@@ -28,26 +35,31 @@ exports.handleauth = function(req, res) {
       // res.send("Access Denied");
       res.redirect('/')
     } else {
-      console.log('Yay! Access token is ' + result.access_token);
-      api.use({access_token: result.access_token});
+      // console.log('Yay! Access token is ' + result.access_token);
+      req.session.token = result.access_token;
+      req.session.username = result.user.username;
+      req.session.profil_picture = result.user.profile_picture;
+      req.session.id = result.user.id;
+      console.log(result);
+      // console.log(req.session)
+      // api.use({access_token: result.access_token});
       // api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {follows = users});
-      fs.writeFile('userInfo.txt', JSON.stringify(result))
-      fs.writeFile('access.txt', result.access_token + ', ' + result.user.id + ','+ result.user.username + '\n', function (err) {
+      // fs.writeFile('userInfo.txt', JSON.stringify(result))
+      // fs.writeFile('access.txt', result.access_token + ', ' + result.user.id + ','+ result.user.username + '\n', function (err) {
         if (err) return console.log(err);
-        console.log(result.access_token + ' > access.txt');
+        // console.log(result.access_token + ' > access.txt');
         //console.log(res.param);
-        console.log(result);
+        // console.log(result);
         // api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {console.log(users)});
-        api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {
-          // fs.writeFile('test.txt', JSON.stringify(users))
-          for(var i=0; i<users.length;i++){
-            fs.appendFile('access.txt', users[i].username + ","+ users[i].id + "\n", function(err){});
-          }
-        });
+        // api.user_follows(result.user.id, function(err, users, pagination, remaining, limit) {
+        //   // fs.writeFile('test.txt', JSON.stringify(users))
+        //   for(var i=0; i<users.length;i++){
+        //     fs.appendFile('access.txt', users[i].username + ","+ users[i].id + "\n", function(err){});
+        //   }
+        // });
         // res.send('Successful!');
         res.redirect('/success')
-      });
-    };
+      };
   })
 }
 
