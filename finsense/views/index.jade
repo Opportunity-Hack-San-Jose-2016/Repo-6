@@ -1,34 +1,21 @@
 extends layout
 
 block content
-  .swiper-container.fading-slider
-      .swiper-wrapper
-          .swiper-slide.swiper-no-swiping
-        .clearfix
-        .product-slider-pagination.fade-pagination
-      section.container
-        h2.heading.heading--start.heading--small See how it works
+  section#team.bg-light-gray
+    .container
+      .row
         .video-container
           iframe(src='http://player.vimeo.com/video/18776121?title=0&byline=0&portrait=0', width='100%', height='100%', frameborder='0', webkitallowfullscreen='', mozallowfullscreen='', allowfullscreen='')
-      br
-      br
-      br
-      br
-      br
-      .container
-        .row.animated-row
-          .col-sm-12.col-md-6.col-md-push-5
-            a.btn.btn-info.btn--decorated.btn-lg(href='#', style='text-align:center;') Login w/Instagram!
-      .divider-color.bottom-space--m
-      footer.footer
-        .container
-      .top-scroll
-        i.fa.fa-angle-up
-
-      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-      script(src='external/z-nav/jquery.mobile.menu.js')
-      script(src='external/livicons/livicons-1.3.min.js')
-      script(src='external/livicons/raphael-min.js')
-      script(src='external/inview/jquery.inview.js')
-      script(src='js/custom.js')
+  footer
+    .container
+      .row
+        .col-md-6
+          span.copyright Copyright &copy; Opportunity Hack PayPal San Jose 2016
+  // jQuery
+  script(src='vendor/jquery/jquery.min.js')
+  // Bootstrap Core JavaScript
+  script(src='vendor/bootstrap/js/bootstrap.min.js')
+  // Plugin JavaScript
+  script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+  // Theme JavaScript
+  script(src='js/agency.min.js')
