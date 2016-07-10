@@ -1,8 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  // p= data.user.full_name
-  // p= data.user.username
-  // img(src=data.user.profile_picture)
+
+  body#page-top.index
+  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            Menu
+            i.fa.fa-bars
+
+          a.navbar-brand.page-scroll(href='#page-top') FinSense
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a(href='#page-top')
+
+            li
+              a.page-scroll(href='#home') Home
+        .navbar-collapse
+      .container-fluid
