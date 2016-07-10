@@ -13,8 +13,8 @@ var fs = require('fs');
 
 var app = express();
 //add client_id and client_secret here!
-api.use({ client_id: process.env['CLIENT_ID'],
-  client_secret: process.env['CLIENT_SECRET'] });
+api.use({ client_id: '',
+  client_secret: ''});
 
 app.use(session({
   secret: 'keyboard cat',
