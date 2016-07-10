@@ -13,8 +13,8 @@ var fs = require('fs');
 
 var app = express();
 //add client_id and client_secret here!
-api.use({ client_id: '',
-  client_secret: '' });
+api.use({ client_id: process.env['CLIENT_ID'],
+  client_secret: process.env['CLIENT_SECRET'] });
 
 app.use(session({
   secret: 'keyboard cat',
@@ -69,6 +69,10 @@ app.get('/authorize_user', exports.authorize_user);
 // This is your redirect URI 
 app.get('/handleauth', exports.handleauth);
 
+app.get('/logout', function(req, res){
+  req.session.destroy(function(err) { })
+  res.redirect('/')
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
