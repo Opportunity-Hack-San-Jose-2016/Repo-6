@@ -59,6 +59,9 @@ html
 
             li
               a.page-scroll(href='/success') Home
+            if (user !== underfined)
+              li
+                a.page-scroll(href='https://www.instagram.com/accounts/logout',target="_blank", onclick="window.location='https://finsense.herokuapp.com/logout';") Logout
         .navbar-collapse
       .container-fluid
 
