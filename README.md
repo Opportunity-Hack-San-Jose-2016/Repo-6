@@ -19,14 +19,14 @@ We divided the work between BackEnd and UI while pair programming. We also colla
 Starting from the authentication with Instargam, we worked our way through user stories.
 
 ##Tech Stack
-JavaScript
-Express.js
-Instagram API
-Instagram-node
-Bootstrap
-Express-sessions
-Node.js
-Jade
+* JavaScript
+* Express.js
+* Instagram API
+* Instagram-node
+* Bootstrap
+* Express-sessions
+* Node.js
+* Jade
 
 ##Challenges We Ran Into
 * Limitations of the Instagram API, particularly the Sandbox mode for new apps and the inability to post new photos. (Currently only able to login to our app with a dev instagram account)
